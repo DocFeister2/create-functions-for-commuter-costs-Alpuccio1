@@ -17,19 +17,29 @@ double toCommutes(double gasDollars) {
   gasGallons = gasDollars / DOLLARS_PER_GALLON;
   gasMiles = gasGallons * MILES_PER_GALLON;
 
-  numCommutes = gasMiles; // TODO: That math is not right! Something is missing here...
+  // Divide the total miles we can drive by the miles required per commute
+  numCommutes = gasMiles / MILES_PER_COMMUTE; 
 
   return numCommutes;
 }
 
-// TODO!
-// Converts number of commutes into gas cost
-/*
+// Converts number of commutes into gas cost in dollars
 double toDollars(double commutes) {
-  ....
+  double totalMiles;
+  double totalGallons;
+  double totalCost;
+
+  // Calculate total miles driven for the given number of commutes
+  totalMiles = commutes * MILES_PER_COMMUTE;
+
+  // Convert total miles to the number of gallons needed
+  totalGallons = totalMiles / MILES_PER_GALLON;
+
+  // Multiply the gallons by the price per gallon to get the final dollar cost
+  totalCost = totalGallons * DOLLARS_PER_GALLON;
+
   return totalCost;
 }
-*/
 
 int main() {
 
@@ -47,4 +57,5 @@ int main() {
   cout << myCommutes << " commutes will cost you $" << myCost << endl;
 
   cout << "All done!" << endl;
+  return 0;
 }
